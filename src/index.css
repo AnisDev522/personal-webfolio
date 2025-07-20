@@ -1,0 +1,296 @@
+
+/* Custom CSS for elements and animations that Tailwind can't easily handle */
+/* Using a custom font from Google Fonts (included in default Tailwind sans stack) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Prevent body scroll when mobile menu is open */
+body.nav-open {
+  overflow: hidden;
+}
+
+
+
+/* Nav Link Underline Effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Nav Link Underline */
+@media (max-width: 768px) {
+  .nav-links a::after {
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-links a:hover::after {
+    width: 60%;
+  }
+}
+
+/* Hamburger Animation */
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Nav Overlay for mobile */
+.nav-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Floating Elements Styling and Animation */
+.floating-element {
+  position: absolute;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Positioning for floating elements in each section */
+.floating-elements .floating-element:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  right: 10%;
+  animation-delay: 0s;
+  opacity: 0.1;
+}
+
+.floating-elements .floating-element:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 20%;
+  animation-delay: 2s;
+  opacity: 0.09;
+}
+
+.floating-elements .floating-element:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  top: 40%;
+  left: 5%;
+  animation-delay: 4s;
+  opacity: 0.08;
+}
+
+.floating-elements .floating-element:nth-child(4) {
+  width: 40px;
+  height: 40px;
+  bottom: 15%;
+  left: 30%;
+  animation-delay: 1s;
+  opacity: 0.07;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Scroll Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(60px) scale(0.9);
+  transform-origin: center bottom;
+  transition: opacity 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.nav-links a.active-link {
+  color: #3b82f6;
+  /* text-blue-500 */
+}
+
+.nav-links a.active-link::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-links a.active-link::after {
+    width: 60%;
+  }
+}
+
+/* Typing indicator dots */
+.typing-dots {
+  display: flex;
+  align-items: center;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 3px;
+  background-color: #94a3b8;
+  /* slate-400 */
+  border-radius: 50%;
+  animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* === CUSTOM SCROLLBAR FOR CHAT DISPLAY === */
+/* Works on WebKit browsers (Chrome, Safari, Edge) */
+#chat-display::-webkit-scrollbar {
+  width: 8px;
+  /* ความกว้างของ Scrollbar */
+}
+
+#chat-display::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+  /* สีพื้นหลังของ Track - bg-slate-800/50 */
+  border-radius: 10px;
+}
+
+#chat-display::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  /* สีของตัวเลื่อน - bg-slate-600 */
+  border-radius: 10px;
+  border: 2px solid rgba(30, 41, 59, 0.5);
+  /* สร้างขอบให้ดูมีมิติ */
+}
+
+#chat-display::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b;
+  /* สีของตัวเลื่อนเมื่อเอาเมาส์ไปชี้ - bg-slate-500 */
+}
+
+/* For Firefox */
+#chat-display {
+  scrollbar-width: thin;
+  /* ทำให้ Scrollbar เล็กลง */
+  scrollbar-color: #475569 rgba(30, 41, 59, 0.5);
+  /* สีตัวเลื่อน และ สีพื้นหลัง */
+}
+
+/* === CUSTOM MODAL VISIBILITY === */
+#confirmation-modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#confirmation-modal-overlay.visible #confirmation-modal {
+  transform: scale(1);
+}
+
+#chat-display, .chat-input {
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* === MARKDOWN STYLING FOR AI RESPONSE === */
+.message-content ul {
+  list-style-type: disc;
+  padding-left: 1.25rem; /* pl-5 */
+  margin-top: 0.5rem; /* mt-2 */
+}
+.message-content li {
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+.message-content p:not(:last-child) {
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+.message-content a {
+  color: #60a5fa; /* text-blue-400 */
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.message-content a:hover {
+  color: #93c5fd; /* text-blue-300 */
+}
+
+
+
+

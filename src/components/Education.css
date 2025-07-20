@@ -1,0 +1,196 @@
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  
+  /* Timeline Line */
+  .timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(to bottom, #8b5cf6, #3b82f6);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Timeline Items */
+  .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+  }
+  
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    top: 20px;
+    z-index: 1;
+  }
+  
+  .timeline-item.left {
+    left: 0;
+    text-align: right;
+    padding-right: 70px;
+  }
+  
+  .timeline-item.left::after {
+    right: -10px;
+  }
+  
+  .timeline-item.right {
+    left: 50%;
+    text-align: left;
+    padding-left: 70px;
+  }
+  
+  .timeline-item.right::after {
+    left: -10px;
+  }
+  
+  /* Timeline Content */
+  .timeline-content {
+    padding: 20px;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .timeline-content:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+  
+  .timeline-icon {
+    position: absolute;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: #7c3aed;
+  }
+  
+  .timeline-item.left .timeline-icon {
+    right: -20px;
+  }
+  
+  .timeline-item.right .timeline-icon {
+    left: -20px;
+  }
+  
+  .timeline-institution {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-duration {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-highlights {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  .timeline-highlight-item {
+    margin-bottom: 0.5rem;
+    color: #e5e7eb;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  
+  .timeline-check {
+    color: #8b5cf6;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .timeline-container::after {
+      left: 31px;
+    }
+  
+    .timeline-item {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+      text-align: left;
+    }
+  
+    .timeline-item.left,
+    .timeline-item.right {
+      left: 0;
+    }
+  
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+      left: 21px;
+    }
+  
+    .timeline-item.left .timeline-icon,
+    .timeline-item.right .timeline-icon {
+      left: -20px;
+      right: auto;
+    }
+  
+    .timeline-institution {
+      font-size: 1.1rem;
+    }
+    
+    .timeline-highlight-item {
+      font-size: 0.85rem;
+    }
+  }
+/* ในไฟล์ Education.css */
+
+.timeline-icon {
+    position: absolute;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* --- ส่วนที่แก้ไข/เพิ่มเติม --- */
+    background: #ffffff; /* เปลี่ยนพื้นหลังเป็นสีขาวเพื่อให้โลโก้ส่วนใหญ่ดูเด่น */
+    overflow: hidden;    /* สำคัญมาก! ใช้ซ่อนขอบของรูปภาพที่ไม่พอดีกับวงกลม */
+    padding: 4px;        /* (Optional) เพิ่มขอบเล็กน้อยด้านใน ทำให้โลโก้ไม่ชิดขอบเกินไป */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* (Optional) เพิ่มเงาให้ดูมีมิติ */
+    /* font-size: 24px; <-- บรรทัดนี้ไม่จำเป็นแล้ว ลบออกได้ */
+  }
+  
+  /* ไม่ต้องเพิ่ม CSS สำหรับ img เพราะเราใช้ Tailwind จัดการแล้ว */
+  
