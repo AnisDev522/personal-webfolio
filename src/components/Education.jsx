@@ -32,44 +32,56 @@ const educationData = [
     logo: "https://www.yru.ac.th/th/uploads/about/logomaster-e6d914f3fa.png",
     highlights: [
       "Faculty of Science, Technology and Agriculture",
-      "Major in Computer Science",
+      "Major in Information Technology",
       "Current GPA: 3.78",
     ],
+    transcriptUrl: "/transcript.pdf", // <-- เพิ่ม key และ path ของไฟล์ Transcript
   },
 ];
 
 const TimelineItem = ({ item, index }) => {
-    const [ref, classes] = useFadeIn();
-    return (
-        <div
-            ref={ref}
-            className={`timeline-item ${index % 2 === 0 ? "left" : "right"} ${classes}`}
-            key={index}
-        >
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-                <div className="timeline-icon">
-                    <img
-                        src={item.logo}
-                        alt={`${item.institution} logo`}
-                        className="w-full h-full object-contain"
-                    />
-                </div>
-                <h3 className="timeline-institution">{item.institution}</h3>
-                <span className="timeline-duration">{item.duration}</span>
-                <ul className="timeline-highlights">
-                    {item.highlights.map((highlight, i) => (
-                        <li key={i} className="timeline-highlight-item">
-                            <span className="timeline-check">✓</span>
-                            {highlight}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    );
+  const [ref, classes] = useFadeIn();
+  return (
+      <div
+          ref={ref}
+          className={`timeline-item ${index % 2 === 0 ? "left" : "right"} ${classes}`}
+          key={index}
+      >
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+              <div className="timeline-icon">
+                  <img
+                      src={item.logo}
+                      alt={`${item.institution} logo`}
+                      className="w-full h-full object-contain"
+                  />
+              </div>
+              <h3 className="timeline-institution">{item.institution}</h3>
+              <span className="timeline-duration">{item.duration}</span>
+              <ul className="timeline-highlights">
+                  {item.highlights.map((highlight, i) => (
+                      <li key={i} className="timeline-highlight-item">
+                          <span className="timeline-check">✓</span>
+                          {highlight}
+                      </li>
+                  ))}
+              </ul>
+              
+              {/* {item.transcriptUrl && (
+                  <a
+                      href={item.transcriptUrl}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="timeline-download-btn"
+                  >
+                      Download Transcript
+                  </a>
+              )} */}
+          </div>
+      </div>
+  );
 };
-
 
 const Education = () => {
   const [titleRef, titleClasses] = useFadeIn();

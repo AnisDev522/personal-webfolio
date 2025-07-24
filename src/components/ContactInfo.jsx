@@ -54,7 +54,7 @@ const contactItems = [
     hoverClass: "hover:border-red-500/60",
   },  
   {
-    href: "tel:+66999999999", // แก้เบอร์เอาเองนะ
+    href: "tel:+66930729891", // แก้เบอร์เอาเองนะ
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

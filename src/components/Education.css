@@ -193,4 +193,23 @@
   }
   
   /* ไม่ต้องเพิ่ม CSS สำหรับ img เพราะเราใช้ Tailwind จัดการแล้ว */
-  
+  /* --- CSS สำหรับปุ่ม Download Transcript --- */
+.timeline-download-btn {
+  display: inline-block;
+  margin-top: 1rem; /* ระยะห่างจากด้านบน */
+  padding: 0.5rem 1rem;
+  background-color: #8b5cf6; /* สีพื้นหลังเหมือนกับธีม */
+  color: #ffffff; /* สีตัวอักษร */
+  border-radius: 8px; /* ทำให้ขอบมน */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-download-btn:hover {
+  background-color: #7c3aed; /* สีเข้มขึ้นเมื่อเมาส์ชี้ */
+  transform: translateY(-2px); /* ทำให้ปุ่มลอยขึ้นเล็กน้อย */
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.2), 0 4px 6px -4px rgba(139, 92, 246, 0.2);
+}

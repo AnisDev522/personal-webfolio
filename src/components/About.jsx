@@ -1,5 +1,5 @@
 import { useFadeIn } from '../hooks/useFadeIn';
-import AboutPic from '../assets/anis.jpg';
+import AboutPic from '../assets/about.jpg';
 
 const About = () => {
   const [titleRef, titleClasses] = useFadeIn();
