@@ -119,7 +119,7 @@ const Chatbot = ({ fwdRef, className }) => {
             <div className="chat-container w-full bg-slate-900/60 p-6 sm:p-8 rounded-3xl border border-slate-700/40">
                 <div className="text-center mb-8">
                     <h3 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-blue-500 bg-clip-text text-transparent">Have a Question?</h3>
-                    <p className="mt-3 text-base text-slate-400 max-w-md mx-auto">Feel free to ask Anisa, my AI, about the stuff on this page.</p>
+                    <p className="mt-3 text-base text-slate-400 max-w-md mx-auto">Feel free to ask ByteBuddy, my AI, about the stuff on this page.</p>
                 </div>
 
                 <div ref={chatDisplayRef} id="chat-display" className="h-[400px] overflow-y-auto pr-4 space-y-6 mb-6">
